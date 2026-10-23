@@ -68,6 +68,12 @@ test('a long brief is cut below Claude Code\'s limit', () => {
 test('the project comes from the memory block, then the git remote, then the folder', () => {
   assert.equal(projectFromRemote('git@github.com:acme/shop.git'), 'acme/shop');
   assert.equal(projectFromRemote('https://github.com/acme/shop'), 'acme/shop');
+  assert.equal(projectFromRemote('https://gitlab.com/group/sub/proj.git'), 'group/sub/proj');
+  assert.equal(projectFromRemote('ssh://git@gitlab.com:2222/group/sub/my.repo.GIT'), 'group/sub/my.repo');
+  assert.equal(projectFromRemote('git@gitlab.com:group/sub/proj.Git/'), 'group/sub/proj');
+  assert.equal(projectFromRemote('file:///srv/git/acme/shop.git'), null);
+  assert.equal(projectFromRemote('/srv/git/acme/shop.git'), null);
+  assert.equal(projectFromRemote('C:\\repos\\acme\\shop'), null);
   assert.equal(projectFromMemoryBlock('# Notes\n\n## Project memory (RepoMemory, project "acme/web")\n- rule'), 'acme/web');
   assert.equal(projectFromMemoryBlock('## Project memory (Agent Ledger, project "old/name")'), 'old/name');
   const dir = mkdtempSync(join(tmpdir(), 'rm-plugin-'));

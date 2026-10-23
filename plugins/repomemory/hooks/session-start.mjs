@@ -30,11 +30,18 @@ export function apiKey(env = process.env) {
   return (env.CLAUDE_PLUGIN_OPTION_REPOMEMORY_API_KEY || env.REPOMEMORY_KEY || env.AGENT_LEDGER_KEY || '').trim();
 }
 
-/** owner/repo from a git remote URL (https, ssh or scp-like), or null. */
+/** The repository path (owner/repo, or group/sub/repo) from a git remote URL (https, ssh or scp-like), or null. */
 export function projectFromRemote(remote) {
-  const m = String(remote).trim().match(/[/:]([^/:]+)\/([^/]+?)(?:\.git)?\/?$/);
-  const name = m && `${m[1]}/${m[2]}`;
-  return name && PROJECT_RE.test(name) ? name : null;
+  const r = String(remote).trim();
+  if (/^file:/i.test(r)) return null;
+  let path;
+  if (/^[a-z][a-z0-9+.-]*:\/\//i.test(r)) {
+    try { path = new URL(r).pathname; } catch { return null; }
+  } else {
+    path = r.match(/^(?:[^@/:\\]+@)?[^@/:\\]{2,}:(.+)$/)?.[1];
+  }
+  const name = path?.replace(/^\/+|\/+$/g, '').replace(/\.git$/i, '');
+  return name && name.includes('/') && PROJECT_RE.test(name) ? name : null;
 }
 
 /** The project a CLAUDE.md / AGENTS.md memory block names, or null. */

@@ -5,6 +5,7 @@
   "author": { "name": "Plexsicity", "url": "https://repomemory.dev" },
   "homepage": "https://repomemory.dev/docs",
   "license": "MIT",
+  "privacyPolicyUrl": "https://repomemory.dev/privacy",
   "keywords": ["memory", "mcp", "guardrails", "decisions", "agents"],
   "userConfig": {
     "repomemory_api_key": {
