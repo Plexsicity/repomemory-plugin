@@ -31,8 +31,9 @@ claude plugin install repomemory@repomemory
 
 Claude Code asks for your RepoMemory API key when you enable the plugin.
 Create one at <https://repomemory.dev/dashboard/keys> (the free plan needs no
-card). The key is kept in your system's credential store; change it with
-`/plugin`.
+card). If it doesn't ask, or to change the key later, run
+`/plugin configure repomemory@repomemory`. The key is kept in your system's
+credential store.
 
 ## How it picks the project
 

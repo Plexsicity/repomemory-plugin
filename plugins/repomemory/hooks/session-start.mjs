@@ -125,7 +125,7 @@ async function readStdin() {
 export async function run(input, env = process.env, fetchImpl = fetch) {
   const key = apiKey(env);
   if (!key) {
-    return { systemMessage: `RepoMemory: no API key, so the project brief wasn't loaded. Create one at ${KEYS_URL} and set it with /plugin (repomemory's settings).` };
+    return { systemMessage: `RepoMemory: no API key, so the project brief wasn't loaded. Create one at ${KEYS_URL} and set it with /plugin configure repomemory@repomemory.` };
   }
   const cwd = input.cwd || process.cwd();
   const project = detectProject(cwd, env);

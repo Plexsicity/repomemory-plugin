@@ -19,7 +19,8 @@ Gives Claude Code the project's memory without any setup in the repository:
 
 Claude Code asks for your API key when you enable the plugin. Create one at
 https://repomemory.dev/dashboard/keys. It is kept in your system's credential
-store, and you can change it with `/plugin`.
+store. If it doesn't ask, or to change it later, run
+`/plugin configure repomemory@repomemory`.
 
 ## Which project
 
