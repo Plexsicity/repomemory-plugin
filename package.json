@@ -1,0 +1,13 @@
+{
+  "name": "repomemory-plugin",
+  "private": true,
+  "type": "module",
+  "description": "RepoMemory's plugin for Claude Code",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

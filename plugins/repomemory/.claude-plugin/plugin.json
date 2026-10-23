@@ -1,0 +1,17 @@
+{
+  "name": "repomemory",
+  "version": "0.1.0",
+  "description": "Shared project memory for Claude Code: the RepoMemory MCP server, and the project's brief (guardrails, open tasks, latest decisions) loaded at the start of every session.",
+  "author": { "name": "Plexsicity", "url": "https://repomemory.dev" },
+  "homepage": "https://repomemory.dev/docs",
+  "license": "MIT",
+  "keywords": ["memory", "mcp", "guardrails", "decisions", "agents"],
+  "userConfig": {
+    "repomemory_api_key": {
+      "type": "string",
+      "title": "RepoMemory API key",
+      "description": "An API key from https://repomemory.dev/dashboard/keys (sk_live_…).",
+      "sensitive": true
+    }
+  }
+}

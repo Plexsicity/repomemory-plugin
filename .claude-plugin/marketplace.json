@@ -1,0 +1,20 @@
+{
+  "name": "repomemory",
+  "owner": {
+    "name": "Plexsicity",
+    "url": "https://repomemory.dev"
+  },
+  "description": "RepoMemory: shared project memory for AI coding agents.",
+  "plugins": [
+    {
+      "name": "repomemory",
+      "source": "./plugins/repomemory",
+      "description": "The RepoMemory MCP server, and the project's brief loaded at the start of every session.",
+      "category": "development",
+      "tags": [
+        "memory",
+        "mcp"
+      ]
+    }
+  ]
+}
