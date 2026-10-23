@@ -41,7 +41,10 @@ ledger.
 
 The hook needs Node 18 or later on `PATH`. Without it, or without a key, or if
 the API can't be reached, the session starts as usual: you see a one-line
-notice, and the MCP tools still work. The brief is kept under 9,000 characters
+notice. With a key, the MCP tools' calls are charged to the key's account;
+without one, Claude Code asks you to sign in with your Plexsicity account the
+first time a tool is used (once the server treats an empty `X-API-Key` as
+absent). The brief is kept under 9,000 characters
 (Claude Code shows only a preview of anything over 10,000).
 
 `REPOMEMORY_KEY` works in place of the plugin setting, and `REPOMEMORY_URL`
